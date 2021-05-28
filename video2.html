@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Video Player</title>
+  <link rel="stylesheet" href="css/video2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+</head>
+<body>
+  <div class="video-box">
+    <div class="player" id="player">
+      <video class="player_video viewer" src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"></video>
+      <!-- <video class="player_video viewer" src="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" poster="img/movie-poster.jpg"></video> -->
+      <!-- <video class="player_video viewer" src="https://pixabay.com/videos/download/video-41758_source.mp4?attachment" poster="img/movie-poster.jpg"></video> -->
+      <!-- <video class="player_video viewer" src="https://pixabay.com/videos/download/video-28745_source.mp4?attachment" poster="img/movie-poster.jpg"></video> -->
+      <!-- <video class="player_video viewer" src="https://pixabay.com/videos/download/video-31377_tiny.mp4?attachment" poster="img/movie-poster.jpg"></video> -->
+      <div class="player_controls">
+        <div class="progress-range" title="Jump-to">
+          <div class="progress-bar"></div>
+        </div>
+        <div class="left-controls">
+          <button class="player_button toggle" title='Toggle Play'><i class="fa fa-play" title="Play" id="play-btn"></i></button>
+          <button class="player_button stop" title='Start over'><i class="fa fa-stop" title="Play" id="stop-btn"></i></button>
+          <button class="player_button speaker"><i id="speaker_icon" class="fa fa-volume-up" aria-hidden="true"></i></button>
+          <input type="range" name="volume" class="player_slider" min="0" max="1" step="0.05" value="1"></input>
+        </div>
+        <div class="right-controls">
+          <!-- I don't see the need for spped changes but I'm leaving the code in for now -->
+          <!-- <button class="player_button rate_icon"><i class="fa fa-spinner" aria-hidden="true"></i></button>
+          <input type="range" name="playbackRate" class="player_slider" min="0.5" max="2" step="0.1" value="1"></input> -->
+          <button data-skip="-10" class="player_button"><i class="fa fa-fast-backward" aria-hidden="true"></i></button>
+          <button data-skip="10" class="player_button"><i class="fa fa-fast-forward" aria-hidden="true"></i></button>
+          <div class="time">
+            <span class="time-elapsed">00:00 / </span>
+            <span class="time-duration">2:38</span>
+          </div>
+          <button class="player_button screenSize"><i id="screenSize_icon" class="fa fa-expand" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vidscript2.js"></script>
+</body>
+</html>
+<!-- build mostly based on https://codepen.io/cmurphy580/pen/oexpRJ  -->

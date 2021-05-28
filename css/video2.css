@@ -1,0 +1,250 @@
+*,
+*:before,
+*:after {
+  /* box-sizing: inherit; */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  font-size: 1rem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button + button {
+  margin-left: 0.75em;
+}
+
+.upload {
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.video-box {
+  margin-top: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player {
+  width: 50%;
+  max-width: 50rem;
+  border: 0.25rem solid rgba(0, 0, 0, 0.445);
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+.player_video {
+  width: 100%;
+  cursor: pointer;
+}
+.fa {
+  color: white;
+  font-size: 1rem;
+}
+
+.fa-play:hover,
+.fa-pause:hover,
+.fa-stop:hover,
+.fa-volume-up:hover,
+.fa-fast-backward:hover,
+.fa-fast-forward:hover {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+/* .fa-expand,
+.fa-compress,
+.fa-fast-backward {
+  font-size: 1.9rem;
+} */
+
+.player_button {
+  background: none;
+  border: 0;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  max-width: 50px;
+  font-size: 1rem;
+}
+.player_button:focus,
+.player_button:hover {
+  border-color: #ffc600;
+  border-color: blue;
+}
+.player_slider {
+  width: 0.75rem;
+  height: 3rem;
+}
+.player_controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%) translateX(-5px);
+  transition: all 0.3s;
+  flex-wrap: wrap;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0 1.5rem;
+}
+.player:hover .player_controls {
+  transform: translateY(0);
+}
+
+.player:hover .progress-range {
+  height: 0.75rem;
+}
+
+.right-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+.left-controls {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.player_controls > * {
+  flex: 1;
+}
+.progress-range {
+  flex: 10;
+  position: relative;
+  display: flex;
+  flex-basis: 100%;
+  height: 1.5em;
+  transition: height 0.3s;
+  background: rgba(0, 0, 0, 0.25);
+  /* cursor: ew-resize; */
+  cursor: pointer;
+}
+.progress-bar {
+  background: dodgerblue;
+  width: 50%;
+  height: 100%;
+  border-radius: 1.5em;
+  transition: all 250ms ease;
+}
+
+.player:fullscreen {
+  max-width: none;
+  width: 100%;
+}
+.player:-webkit-full-screen {
+  /*CHROME*/
+  max-width: none;
+  width: 100%;
+}
+.player:-moz-full-screen {
+  /*FIREFOX*/
+  max-width: none;
+  width: 100%;
+}
+
+.time {
+  text-align: right;
+  position: relative;
+  top: 0.85em;
+  padding-left: 0.5em;
+  margin-right: 1em;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  /* user-select: none; */
+}
+
+.time-elapsed,
+.fa-fast-forward {
+  padding-left: 0.75em;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  background: transparent;
+  width: 40%;
+  margin: 0 20px;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+input[type='range']::-webkit-slider-thumb {
+  height: 0.75em;
+  width: 1em;
+  border-radius: 0.25em;
+  background: dodgerblue;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4px;
+  box-shadow: 0 0 2px rgb(15, 14, 80);
+}
+
+input[type='range']::-moz-range-track {
+  /*?*/
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+  background: #ffffff;
+  border-radius: 1.3px;
+  border: 0.2px solid rgba(1, 1, 1, 0);
+}
+input[type='range']::-moz-range-thumb {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+  height: 12px;
+  width: 17px;
+  border-radius: 50px;
+  background: blue;
+  cursor: pointer;
+}
+
+@media (max-width: 962px) {
+  .player {
+    width: 60%;
+  }
+
+  .fa {
+    color: white;
+    font-size: 0.9rem;
+  }
+  button + button {
+    margin-left: 0;
+  }
+  .time {
+    padding-left: 0;
+    margin-right: 0.5em;
+  }
+
+  .time-elapsed,
+  .fa-fast-forward {
+    padding-left: 0.75em;
+  }
+}
+
+@media (max-width: 827px) {
+  .player {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .player {
+    width: 95%;
+  }
+}
